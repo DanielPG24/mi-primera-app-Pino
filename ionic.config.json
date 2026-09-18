@@ -1,0 +1,7 @@
+{
+  "name": "mi-primera-app-Pino",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
