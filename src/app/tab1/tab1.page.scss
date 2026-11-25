@@ -1,0 +1,12 @@
+.logo {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin-right: 10px;
+}
+
+/* Cambia el color de la etiqueta flotante cuando el input está enfocado */
+ion-input.has-focus .label-text {
+  color: var(--ion-color-primary); /* Usa el color secundario, por ejemplo */
+}

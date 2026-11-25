@@ -1,17 +1,63 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <img src="assets/img/logo.png" class="logo">
+
+    <ion-buttons slot="end">
+      <ion-button routerLink="/ajustes">
+        <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="bag"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<!-- FORMULARIO PARA AÑADIR PRODUCTOS -->
+<ion-list>
+  <ion-item>
+    <ion-input
+      label="Nuevo Nombre"
+      label-placement="floating"
+      placeholder="¿Qué necesitas hacer?"
+      [(ngModel)]="nuevoProducto.nombre"> <!-- Enlazado a la propiedad 'nombre' del objeto -->
+    </ion-input>
+    <ion-textarea
+      label="Nueva Descripción"
+      label-placement="floating"
+      placeholder="¿Qué necesitas hacer?"
+      [(ngModel)]="nuevoProducto.descripcion"> <!-- Enlazado a la propiedad 'descripcion' del objeto -->
+    </ion-textarea>
+    <ion-input
+      label="Nuevo Precio"
+      label-placement="floating"
+      placeholder="¿Qué necesitas hacer?"
+      [(ngModel)]="nuevoProducto.precio"> <!-- Enlazado a la propiedad 'precio' del objeto -->
+    </ion-input>
+    <ion-input
+      label="Nueva Imagen"
+      label-placement="floating"
+      placeholder="¿Qué necesitas hacer?"
+      [(ngModel)]="nuevoProducto.imagen"> <!-- Enlazado a la propiedad 'imagen' del objeto -->
+    </ion-input>
+  </ion-item>
+</ion-list>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-button expand="block" (click)="agregarProducto()" class="ion-margin-top ion-margin-bottom">
+  Añadir Producto
+</ion-button>
+
+<ion-content class="ion-padding">
+
+  <h2>Catálogo de productos</h2>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let producto of productos" size="6" size-md="4" size-lg="3">
+        <app-producto-item [producto]="producto"></app-producto-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>
